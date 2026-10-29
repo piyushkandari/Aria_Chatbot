@@ -1,0 +1,1011 @@
+{
+  "schema_version": "1.0",
+  "intents": [
+    {
+      "name": "greeting.hello",
+      "category": "greeting",
+      "priority": 10,
+      "patterns": [
+        "\\b(?:hello|hi|hey|heya|hiya|hola|howdy|namaste|greetings)\\b",
+        "^\\s*(?:yo|sup|hii+|heyy+)\\b",
+        "\\bgood\\s+(?:morning|afternoon|evening)\\b",
+        "\\bwhat['’]?s\\s+up\\b"
+      ],
+      "responses": [
+        "Hello! I'm Aria, the HCLTech virtual assistant. How can I help you today?",
+        "Hi there! I can help with HR, IT, payroll, policies and office queries. What do you need?",
+        "Hey! I'm Aria. Ask me anything about working at HCLTech."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.company",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\bwhat(?:['’]s|\\s+is|\\s+are)?\\s+hcl(?:\\s*tech)?\\b",
+        "\\bwho\\s+(?:is|are)\\s+hcl(?:\\s*tech)?\\b",
+        "\\b(?:about|tell\\s+me\\s+about)\\s+hcl(?:\\s*tech)?\\b",
+        "\\bwhat\\s+does\\s+hcl(?:\\s*tech)?\\s+do\\b",
+        "\\bhcl(?:\\s*tech)?\\s+(?:company|overview|profile|info|information|employees|headcount|size|countries|presence|services|offerings|values|vision|mission)\\b"
+      ],
+      "responses": [
+        "HCLTech is a global technology company, home to more than 219,000 people across 60 countries, delivering industry-leading capabilities centered around digital, engineering, cloud and AI.",
+        "HCLTech is a leading global IT services and consulting company, helping enterprises with digital, engineering, cloud and AI transformation."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.working_hours",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\b(?:work|working|office|shift|business)\\s+(?:hours|timings?|schedule)\\b",
+        "\\boffice\\s+time(?:s|ing|ings)?\\b",
+        "\\bwhat\\s+time\\s+(?:does|do)\\s+(?:the\\s+)?(?:office|we)\\s+(?:open|close|start|begin|end)\\b",
+        "\\bwhen\\s+(?:do|does)\\s+(?:we|the\\s+office)\\s+(?:work|open|close|start)\\b",
+        "\\boffice\\s+(?:opening|closing)\\s+time\\b",
+        "\\b(?:login|log\\s+in|logout)\\s+time\\b",
+        "\\b(?:flexi(?:ble)?|flex)\\s+(?:time|timings?|hours)\\b",
+        "\\bweek(?:end|ly)\\s+off\\b"
+      ],
+      "responses": [
+        "Our standard working hours are 9:00 AM to 6:00 PM, Monday through Friday.",
+        "The office is generally open from 9 AM to 6 PM. However, some teams may have flexible or shift-based timings, so please confirm with your reporting manager."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.attendance",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\b(?:attendance|regulari[sz]ation|regulari[sz]e)\\b",
+        "\\b(?:missed|forgot(?:ten)?)\\s+(?:to\\s+)?(?:swipe|punch)\\b",
+        "\\bpunch\\s*(?:in|out)\\b",
+        "\\bswipe\\s+(?:in|out|issue|correction)\\b",
+        "\\btime\\s*sheets?\\b"
+      ],
+      "responses": [
+        "For attendance regularization or swipe corrections, please use the HR Self-Service portal or inform your reporting manager. Timesheets are filled in the tool used by your project.",
+        "Missed a swipe? You can submit a regularization request on the HR Self-Service portal for your manager's approval."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.leave_policy",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\bleaves?\\s+(?:policy|balance|rules?|types?|entitlement|encashment|carry\\s*forward)\\b",
+        "\\bhow\\s+many\\s+(?:paid\\s+)?(?:leaves?|days\\s+off)\\b",
+        "\\b(?:casual|sick|annual|earned|privilege|maternity|paternity|medical|compensatory|marriage|bereavement)\\s+(?:leave|off)\\b",
+        "\\b(?:apply|request|take|book|cancel)\\s+(?:for\\s+)?(?:a\\s+)?(?:leave|day\\s+off|time\\s+off|vacation)\\b",
+        "\\bhow\\s+(?:to|do\\s+i|can\\s+i)\\s+(?:apply|request|take|cancel)\\s+(?:for\\s+)?(?:a\\s+)?(?:leave|time\\s+off)\\b",
+        "\\b(?:pto|time\\s+off|loss\\s+of\\s+pay|lop)\\b"
+      ],
+      "responses": [
+        "You can check your exact leave balance and entitlement on the HR Self-Service portal. Leave types and carry-forward rules are listed in the leave policy section.",
+        "To apply for leave, log into the HR Self-Service portal and submit a request to your reporting manager for approval."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.holidays",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\bholidays?\\s+(?:list|calendar|schedule)\\b",
+        "\\b(?:public|company|office|national|optional|floating)\\s+holidays?\\b",
+        "\\bis\\s+(?:today|tomorrow)\\s+a\\s+holiday\\b",
+        "\\bwhich\\s+days\\s+are\\s+holidays?\\b"
+      ],
+      "responses": [
+        "The official holiday calendar is published on the HR portal. Please check it for the list that applies to your location.",
+        "For company and optional holidays, see the holiday calendar on the HR Self-Service portal. It varies by office location."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.work_from_home",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\b(?:work(?:ing)?\\s+from\\s+home|wfh|remote\\s+work(?:ing)?|work\\s+remotely|hybrid|work\\s+from\\s+office|wfo|return\\s+to\\s+office|rto)\\b"
+      ],
+      "responses": [
+        "Work-from-home and hybrid arrangements depend on your project, client requirements and manager approval. Please check the policy on the HR portal or confirm with your reporting manager.",
+        "For remote or hybrid work, your team's policy applies. The HR portal has the latest guidelines."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.it_password",
+      "category": "question",
+      "priority": 52,
+      "patterns": [
+        "\\b(?:reset|change|recover|unlock|forgot(?:ten)?|expired?)\\s+(?:my\\s+|the\\s+)?(?:pass\\s*word|passcode|pin)\\b",
+        "\\bpass\\s*word\\s+(?:reset|expired?|expiry|not\\s+working|issues?|problems?)\\b",
+        "\\b(?:account|id|login)\\s+(?:is\\s+)?(?:locked|blocked|disabled)\\b",
+        "\\b(?:mfa|2fa|otp|authenticator)\\b",
+        "\\bforgot(?:ten)?\\s+(?:my\\s+)?(?:login|credentials|username)\\b"
+      ],
+      "responses": [
+        "You can reset your password through the Self-Service password portal. If your account is locked or MFA/OTP is not working, please raise a ticket with the IT Helpdesk.",
+        "For password resets and account unlocks, use the Self-Service portal. For anything else, contact the IT Helpdesk. Please never share your password in this chat."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.it_network",
+      "category": "question",
+      "priority": 51,
+      "patterns": [
+        "\\b(?:vpn|wi-?fi|internet|network|lan)\\s+(?:is\\s+)?(?:not\\s+working|issues?|problems?|slow|down|disconnect\\w*|not\\s+connect\\w*)\\b",
+        "\\b(?:cannot|can['’]?t|unable\\s+to)\\s+connect\\s+to\\s+(?:the\\s+)?(?:vpn|wi-?fi|internet|network)\\b",
+        "\\bvpn\\b",
+        "\\bwi-?fi\\s+pass\\s*word\\b"
+      ],
+      "responses": [
+        "For VPN, Wi-Fi or network problems, first restart your connection and try again. If it persists, raise a ticket with the IT Helpdesk with your location and error message.",
+        "Network and VPN issues are handled by the IT Helpdesk. Please raise a ticket and include any error you see."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.it_hardware",
+      "category": "question",
+      "priority": 51,
+      "patterns": [
+        "\\b(?:laptop|desktop|monitor|keyboard|mouse|headset|charger|docking\\s+station|printer|scanner)\\b[^.?!]{0,40}\\b(?:issues?|problems?|broken|not\\s+working|faulty|damaged|repair|replace\\w*|slow|crash\\w*)\\b",
+        "\\b(?:need|request|get)\\s+(?:a\\s+)?(?:new\\s+)?(?:laptop|monitor|keyboard|mouse|headset|charger)\\b",
+        "\\blaptop\\s+(?:issues?|problems?|request|replacement)\\b"
+      ],
+      "responses": [
+        "For hardware issues or a new device request, please raise a ticket on the IT Helpdesk portal. Replacement requests may need your manager's approval.",
+        "Laptop and peripheral problems are handled by IT Support. Raise a ticket with your asset details and a short description of the issue."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.it_software",
+      "category": "question",
+      "priority": 51,
+      "patterns": [
+        "\\b(?:install|installation|download)\\s+(?:a\\s+|the\\s+)?(?:software|app|application|tool|program)\\b",
+        "\\bsoftware\\s+(?:request|access|licen[sc]e|installation)\\b",
+        "\\b(?:teams|outlook|zoom|office\\s*365|o365|jira|sharepoint|webex)\\s+(?:is\\s+)?(?:not\\s+working|issues?|problems?|crash\\w*|not\\s+opening)\\b",
+        "\\b(?:access|permission)\\s+(?:request|to\\s+(?:a\\s+|the\\s+)?(?:folder|share|repo|repository|system|application))\\b"
+      ],
+      "responses": [
+        "Software installation and access requests go through the IT Helpdesk. Please raise a request with the tool name, business justification and manager approval.",
+        "For application issues or access permissions, raise a ticket on the IT Helpdesk portal. Only approved software can be installed on company devices."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.it_support",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\b(?:it|tech(?:nical)?)\\s+(?:support|helpdesk|help\\s+desk|desk|team|issue)\\b",
+        "\\b(?:raise|create|log|open)\\s+(?:a\\s+|an\\s+)?(?:ticket|incident|service\\s+request)\\b",
+        "\\bwho\\s+(?:do|should|can)\\s+i\\s+(?:contact|call|ask|reach)\\s+(?:for|about)\\s+(?:it|tech|technical)\\b",
+        "\\bcan['’]?t\\s+(?:log\\s*in|connect|access)\\b",
+        "\\bticket\\s+status\\b"
+      ],
+      "responses": [
+        "For IT support, please raise a ticket on the internal IT Helpdesk portal. You can also track the status of existing tickets there.",
+        "The IT Helpdesk handles passwords, devices, software, VPN and access issues. Raise a ticket and the team will assist you."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.office_location",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\bwhere\\s+(?:is|are)\\s+(?:the\\s+|our\\s+)?(?:office|offices|campus|building|hq|headquarters)\\b",
+        "\\b(?:office|campus|building)\\s+(?:location|address)\\b",
+        "\\bwhere\\s+(?:are\\s+we|is\\s+hcl(?:\\s*tech)?)\\s+located\\b",
+        "\\bwhich\\s+(?:floor|building|desk|cabin)\\b",
+        "\\bhow\\s+(?:do\\s+i|to)\\s+(?:get|reach)\\s+(?:to\\s+)?(?:the\\s+)?office\\b"
+      ],
+      "responses": [
+        "You can find your assigned building, floor and desk on your employee dashboard or in the internal directory.",
+        "HCLTech has offices across many locations. Please check the internal directory for your specific campus, building and floor."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.facilities",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\b(?:cafeteria|canteen|food\\s+court|lunch\\s+(?:menu|options|timings?)|parking|shuttle|cab\\s+(?:service|facility|booking)|transport|bus\\s+(?:service|route)|gym|creche|day\\s*care|medical\\s+room|pantry)\\b"
+      ],
+      "responses": [
+        "For cafeteria, parking, transport, gym and other campus facilities, check the Facilities section on the intranet or contact the Admin/Facilities team at your location.",
+        "Facilities such as transport, parking and food services vary by campus. The Admin team at your location can help with specifics."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.id_card_access",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\b(?:id|identity|access|employee)\\s+(?:card|badge)\\b",
+        "\\bbadge\\b",
+        "\\bvisitor\\s+(?:pass|entry|registration|access)\\b"
+      ],
+      "responses": [
+        "ID and access card requests are handled by the Admin/Security team at your campus. Please raise a request through the service portal or contact them directly.",
+        "For a new, replacement or visitor access card, contact the Security/Admin desk at your office location."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.payroll",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\b(?:salary|pay\\s*slips?|payroll|pay\\s*day|ctc|form\\s*16|form\\s*26as|tds)\\b",
+        "\\bsalary\\s+(?:date|credit\\w*|slip|structure|certificate)\\b",
+        "\\b(?:tax|it)\\s+(?:declaration|proof|saving|regime)\\b"
+      ],
+      "responses": [
+        "For payslips, salary details, Form 16 and tax declarations, please use the Payroll section of the HR Self-Service portal or contact HR Payroll.",
+        "Payroll queries are handled through the HR portal. You can download payslips and submit tax declarations there, or raise a payroll ticket."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.reimbursement",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\b(?:reimburse\\w*|petty\\s+cash|per\\s+diem)\\b",
+        "\\bexpense\\s+(?:claim|report|policy)\\b",
+        "\\bclaim\\s+(?:expense|bill|reimbursement)\\b",
+        "\\b(?:travel|mobile|internet|phone)\\s+(?:claim|bill)\\b"
+      ],
+      "responses": [
+        "Expense and reimbursement claims are submitted through the expense tool on the HR Self-Service portal, with bills attached and manager approval.",
+        "To claim reimbursement, submit your bills in the expense section of the portal. Check the expense policy for eligible items and deadlines."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.provident_fund",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\b(?:pf|epf|uan|provident\\s+fund)\\b",
+        "\\bpf\\s+(?:balance|withdrawal|transfer)\\b"
+      ],
+      "responses": [
+        "For PF balance, UAN activation, withdrawals or transfers, use the EPFO member portal or contact HR Payroll through the HR Self-Service portal.",
+        "PF-related queries are handled by HR Payroll. You can also check your passbook on the EPFO member portal using your UAN."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.benefits",
+      "category": "question",
+      "priority": 45,
+      "patterns": [
+        "\\b(?:insurance|mediclaim|gratuity|esop|rsu|stock\\s+options?)\\b",
+        "\\bmedical\\s+(?:cover|benefits?|claim|policy)\\b",
+        "\\bhealth\\s+(?:insurance|cover|check-?up)\\b",
+        "\\bgroup\\s+(?:insurance|health)\\b",
+        "\\bbenefits?\\b"
+      ],
+      "responses": [
+        "For insurance, medical claims, gratuity and other benefits, please check the Benefits section of the HR portal or contact the HR team.",
+        "Benefit details such as health insurance and claims are available on the HR Self-Service portal. HR can help with anything specific."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.performance",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\b(?:appraisal|increment|hike|promotion|variable\\s+pay|kra|goal\\s+setting)\\b",
+        "\\bperformance\\s+(?:review|ratings?|cycle|feedback|management)\\b",
+        "\\bbonus\\b"
+      ],
+      "responses": [
+        "Appraisal, goals and promotion timelines are communicated by HR each cycle. Check the Performance section of the HR portal or speak with your reporting manager.",
+        "For queries about ratings, increments or bonuses, please discuss with your manager first and raise an HR ticket if needed."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.training",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\b(?:training|upskill\\w*|certifications?|e-?learning|lms)\\b",
+        "\\blearning\\s+(?:platform|portal|path|budget|plan)\\b",
+        "\\bskill\\s+development\\b"
+      ],
+      "responses": [
+        "Learning and certification options are available on the company's learning platform. Check the Learning section of the HR portal, or discuss your development plan with your manager.",
+        "For trainings and certifications, browse the learning portal. Certification reimbursement depends on policy and manager approval."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.career_mobility",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\binternal\\s+(?:job|jobs|posting|postings|opening|openings|mobility|transfer)\\b",
+        "\\b(?:job|project|team|role|location)\\s+change\\b",
+        "\\bchange\\s+(?:my\\s+)?(?:project|team|role|location)\\b",
+        "\\btransfer\\s+request\\b",
+        "\\brelocat\\w*\\b",
+        "\\bcareer\\s+(?:growth|path|development)\\b"
+      ],
+      "responses": [
+        "Internal openings and transfers are listed on the internal jobs portal. Please speak with your manager and HR before applying for a change.",
+        "For career growth, project changes or relocation, discuss with your reporting manager first, then check internal opportunities on the HR portal."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.referral",
+      "category": "question",
+      "priority": 52,
+      "patterns": [
+        "\\breferral\\b",
+        "\\brefer\\s+(?:a\\s+)?(?:friend|candidate|someone)\\b",
+        "\\bemployee\\s+referral\\b"
+      ],
+      "responses": [
+        "You can refer candidates through the employee referral section of the HR portal. Eligibility and bonus details are in the referral policy.",
+        "To refer someone, submit their profile on the referral portal against an open position and track the status there."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.onboarding",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\bonboard\\w*\\b",
+        "\\bnew\\s+(?:joiner|joinee|hire|employee)\\b",
+        "\\bjoining\\s+(?:formalities|date|kit|documents?)\\b",
+        "\\bfirst\\s+day\\b",
+        "\\binduction\\b",
+        "\\bwelcome\\s+kit\\b",
+        "\\bbackground\\s+(?:check|verification)\\b",
+        "\\bbgv\\b"
+      ],
+      "responses": [
+        "Welcome aboard! Joining formalities, documents and induction details are shared by HR and available on the onboarding section of the HR portal.",
+        "For onboarding questions such as documents, background verification or your first day, please contact your HR onboarding team or check the joining kit you received."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.resignation",
+      "category": "question",
+      "priority": 55,
+      "patterns": [
+        "\\b(?:resign|resignation|notice\\s+period|relieving\\s+letter|experience\\s+letter|full\\s+and\\s+final)\\b",
+        "\\bexit\\s+(?:process|formalities|interview|clearance)\\b",
+        "\\bhow\\s+(?:to|do\\s+i)\\s+(?:quit|leave\\s+the\\s+company)\\b"
+      ],
+      "responses": [
+        "For resignation, notice period or exit formalities, please speak with your reporting manager and HR. The process is also described on the HR portal.",
+        "Exit-related questions are best handled by HR. Please raise a request on the HR Self-Service portal."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.travel",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\bbusiness\\s+travel\\b",
+        "\\btravel\\s+(?:policy|request|approval|booking|desk)\\b",
+        "\\bbook\\s+(?:a\\s+)?(?:flight|hotel)\\b",
+        "\\bvisa\\b",
+        "\\bon-?site\\b"
+      ],
+      "responses": [
+        "Business travel, visa and onsite requests go through the Travel desk and need manager approval. Please check the travel policy on the HR portal.",
+        "For flight or hotel bookings and visa support, raise a request with the Travel desk through the service portal."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.policies",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\bcode\\s+of\\s+(?:conduct|ethics)\\b",
+        "\\b(?:company|hr)\\s+polic(?:y|ies)\\b",
+        "\\bdress\\s+code\\b",
+        "\\bmoonlighting\\b",
+        "\\bconflict\\s+of\\s+interest\\b",
+        "\\bsocial\\s+media\\s+policy\\b",
+        "\\b(?:byod|bring\\s+your\\s+own\\s+device)\\b"
+      ],
+      "responses": [
+        "All company policies, including the Code of Conduct, are available on the HR portal under Policies. Please read the latest version there.",
+        "Policy documents such as dress code, BYOD and conflict of interest are published on the intranet. Contact HR if you need clarification."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.grievance",
+      "category": "question",
+      "priority": 75,
+      "patterns": [
+        "\\b(?:posh|harass\\w*|grievance|discriminat\\w*|bull(?:y|ying)|misconduct)\\b",
+        "\\bwhistle\\s*blow\\w*\\b",
+        "\\bethics\\s+(?:hotline|helpline|line)\\b",
+        "\\breport\\s+(?:a\\s+)?(?:concern|complaint|violation)\\b"
+      ],
+      "responses": [
+        "I'm sorry you're dealing with this. Please raise it through the official grievance or ethics channels, or contact HR directly. These matters are handled with care and confidentiality. If anyone is in immediate danger, contact security or local emergency services.",
+        "For harassment, grievances or ethics concerns, please use the official reporting channels on the HR portal or speak to HR directly. A chatbot isn't the right place to handle this, but the right team can help."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.wellbeing",
+      "category": "question",
+      "priority": 75,
+      "patterns": [
+        "\\b(?:eap|counsel+ing|well-?being|wellness|mental\\s+health)\\b",
+        "\\bfeeling\\s+(?:stressed|overwhelmed|burn(?:t|ed)\\s*out|anxious)\\b",
+        "\\bburn\\s*out\\b",
+        "\\bstress(?:ed)?\\b"
+      ],
+      "responses": [
+        "I'm sorry you're feeling this way. Support is available. Please reach out to HR or check the employee wellbeing and assistance resources on the HR portal. If you're in immediate distress or danger, please contact local emergency services.",
+        "Your wellbeing matters. You can talk to your manager or HR, and the HR portal lists wellbeing and counselling resources available to employees."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.security_incident",
+      "category": "question",
+      "priority": 70,
+      "patterns": [
+        "\\b(?:phishing|malware|virus|ransomware|hacked|data\\s+breach|security\\s+incident)\\b",
+        "\\bsuspicious\\s+(?:email|mail|link|message|call|activity)\\b",
+        "\\b(?:lost|stolen|missing)\\s+(?:my\\s+)?(?:laptop|phone|mobile|id\\s*card|access\\s*card|badge|device)\\b"
+      ],
+      "responses": [
+        "Please report this immediately to the IT Security team or the IT Helpdesk. Do not click any links or open attachments, and do not delay reporting a lost device.",
+        "This is a security matter. Report it right away to IT Security through the Helpdesk and follow their instructions. Quick reporting protects you and the company."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.manager_contact",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\bwho\\s+is\\s+my\\s+(?:manager|reporting\\s+manager|supervisor|hr|hrbp|delivery\\s+manager|project\\s+manager)\\b",
+        "\\bmy\\s+(?:manager|hrbp)['’]?s?\\s+(?:name|contact|email)\\b"
+      ],
+      "responses": [
+        "Your reporting manager and HR business partner details are available on your employee dashboard and in the company directory.",
+        "You can look up your manager and HRBP in the internal directory or on your HR portal profile."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.directory",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\bemployee\\s+(?:directory|id|number|lookup)\\b",
+        "\\bfind\\s+(?:a\\s+)?(?:colleague|employee)\\b",
+        "\\borg\\s+chart\\b",
+        "\\bphone\\s+directory\\b",
+        "\\bmy\\s+emp(?:loyee)?\\s*id\\b"
+      ],
+      "responses": [
+        "You can search for colleagues, org charts and contact details in the internal employee directory. Your own employee ID is on your HR portal profile and payslip.",
+        "The company directory on the intranet lets you look up employees by name or ID."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.hr_contact",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\b(?:hr|human\\s+resources)\\s+(?:contact|email|help|team|department|support|number|helpdesk)\\b",
+        "\\b(?:contact|reach|talk\\s+to|speak\\s+to|email|call)\\s+(?:the\\s+)?(?:hr|human\\s+resources)\\b"
+      ],
+      "responses": [
+        "You can reach the HR team by raising a request on the HR Self-Service portal or through the HR directory on the intranet.",
+        "For HR help, please raise a ticket on the HR portal. The team will get back to you."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.human_handoff",
+      "category": "question",
+      "priority": 70,
+      "patterns": [
+        "\\b(?:talk|speak|chat|connect)\\s+(?:to|with)\\s+(?:a\\s+|an\\s+)?(?:human|person|agent|representative|someone|executive|real\\s+person)\\b",
+        "\\b(?:live|human)\\s+(?:agent|support|help)\\b",
+        "\\bescalate\\b"
+      ],
+      "responses": [
+        "I can't transfer you to a live agent from this chat. For personal assistance, please raise a ticket on the HR Self-Service portal or the IT Helpdesk, depending on your query.",
+        "I'm a virtual assistant, so I can't connect you to a person directly. The HR portal and IT Helpdesk both have ticket options where a team member will respond."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.privacy",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\bis\\s+this\\s+(?:chat\\s+)?(?:private|confidential|secure|recorded)\\b",
+        "\\bdo\\s+you\\s+(?:store|save|record|log)\\s+(?:my\\s+)?(?:chats?|data|messages|conversations?)\\b",
+        "\\b(?:privacy|data\\s+protection)\\b"
+      ],
+      "responses": [
+        "Conversations with me may be logged for quality and support purposes. Please avoid sharing passwords or sensitive personal information in this chat.",
+        "Chats may be recorded to improve the service. For your safety, never share passwords, bank details or other confidential data here."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.time",
+      "category": "question",
+      "priority": 60,
+      "patterns": [
+        "\\bwhat(?:['’]s|\\s+is)\\s+the\\s+(?:current\\s+)?time\\b",
+        "\\bwhat\\s+time\\s+(?:is\\s+it|it\\s+is)\\b",
+        "\\b(?:current|present)\\s+time\\b",
+        "\\b(?:tell|give|show)\\s+me\\s+(?:the\\s+)?(?:current\\s+)?time\\b",
+        "\\b(?:do\\s+you\\s+(?:know|have)|(?:can|could)\\s+you\\s+(?:tell|give)\\s+me)\\s+the\\s+time\\b",
+        "\\btime\\s+(?:now|right\\s+now|please|pls)\\b",
+        "^\\s*(?:the\\s+)?time\\s*[?!.]*\\s*$"
+      ],
+      "responses": [
+        "The current time is {time}.",
+        "It is currently {time}.",
+        "Right now, the time is {time}."
+      ],
+      "slots": [],
+      "escalation_responses": [],
+      "repeat_responses": [
+        "As I mentioned, the time is {time}.",
+        "It is still {time}."
+      ]
+    },
+    {
+      "name": "question.date",
+      "category": "question",
+      "priority": 60,
+      "patterns": [
+        "\\bwhat(?:['’]s|\\s+is)\\s+(?:the\\s+|today['’]?s\\s+)?(?:current\\s+)?date\\b",
+        "\\bwhat\\s+(?:date|day)\\s+(?:is\\s+it|is\\s+today|it\\s+is)\\b",
+        "\\bwhich\\s+(?:date|day)\\s+(?:is\\s+it|is\\s+today)\\b",
+        "\\bwhat(?:['’]s|\\s+is)\\s+today\\b",
+        "\\btoday['’]?s\\s+date\\b",
+        "\\b(?:current|present)\\s+date\\b",
+        "\\b(?:tell|give|show)\\s+me\\s+(?:the\\s+|today['’]?s\\s+)?(?:current\\s+)?date\\b",
+        "\\bdate\\s+(?:today|now|please|pls)\\b",
+        "^\\s*(?:the\\s+)?(?:date|today)\\s*[?!.]*\\s*$"
+      ],
+      "responses": [
+        "Today's date is {date}.",
+        "The current date is {date}.",
+        "It is {date} today."
+      ],
+      "slots": [],
+      "escalation_responses": [],
+      "repeat_responses": [
+        "As I mentioned, today is {date}.",
+        "The date is still {date}."
+      ]
+    },
+    {
+      "name": "question.identity",
+      "category": "question",
+      "priority": 40,
+      "patterns": [
+        "\\bare\\s+you\\s+(?:a\\s+|an\\s+)?(?:real\\s+)?(?:robot|bot|human|person|ai|chatbot|machine)\\b",
+        "\\bare\\s+you\\s+(?:real|alive)\\b",
+        "\\bhow\\s+do\\s+you\\s+work\\b",
+        "\\bwhat\\s+are\\s+you\\b"
+      ],
+      "responses": [
+        "I am Aria, a virtual assistant designed to help HCLTech employees with common HR, IT and office queries using a rule-based engine.",
+        "I'm a virtual assistant, not a human! I match your questions against a set of predefined rules and patterns."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.creator",
+      "category": "question",
+      "priority": 40,
+      "patterns": [
+        "\\bwho\\s+(?:made|created|built|developed|designed|programmed)\\s+you\\b",
+        "\\byour\\s+(?:creator|developer|maker)\\b"
+      ],
+      "responses": [
+        "I was built as a rule-based chatbot to answer common employee queries. I match your messages against predefined patterns to find the best response.",
+        "I'm a rule-based assistant created by a developer to help HCLTech employees find answers quickly."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.language",
+      "category": "question",
+      "priority": 40,
+      "patterns": [
+        "\\b(?:do\\s+you\\s+)?(?:speak|understand|know)\\s+(?:hindi|tamil|telugu|bengali|marathi|french|german|spanish|other\\s+languages?)\\b",
+        "\\bwhich\\s+languages?\\b",
+        "\\b(?:hindi|tamil|telugu|french|german|spanish)\\s+(?:mein|me|please|support)\\b"
+      ],
+      "responses": [
+        "At the moment I understand English only. I'm happy to help with your question in English.",
+        "I currently support English. Please type your question in English and I'll do my best to help."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.thanks",
+      "category": "question",
+      "priority": 30,
+      "patterns": [
+        "\\bthank(?:s|\\s*you|\\s*u)?\\b",
+        "\\b(?:thx|ty)\\b",
+        "\\bappreciate\\s+(?:it|that|the\\s+help)\\b",
+        "\\b(?:that['’]?s|that\\s+is|this\\s+is)\\s+(?:helpful|great|awesome|perfect|nice)\\b",
+        "\\b(?:great|good)\\s+(?:help|job)\\b",
+        "\\bwell\\s+done\\b"
+      ],
+      "responses": [
+        "You're welcome! Happy to help.",
+        "No problem! Let me know if you need anything else.",
+        "You're very welcome."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.apology",
+      "category": "question",
+      "priority": 30,
+      "patterns": [
+        "\\b(?:sorry|my\\s+bad|i\\s+apologi[sz]e|apologies|oops)\\b"
+      ],
+      "responses": [
+        "No worries at all! How can I help you?",
+        "That's completely fine. What else would you like to know?",
+        "No problem. Let's continue."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.compliment",
+      "category": "question",
+      "priority": 30,
+      "patterns": [
+        "\\byou(?:['’]?re|\\s+are)\\s+(?:great|awesome|smart|good|amazing|helpful|cool)\\b",
+        "\\b(?:good|nice|great)\\s+bot\\b"
+      ],
+      "responses": [
+        "Thank you, that's kind of you! What else can I help with?",
+        "Thanks! I'm glad I could help."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.complaint",
+      "category": "question",
+      "priority": 35,
+      "patterns": [
+        "\\byou(?:['’]?re|\\s+are)\\s+(?:stupid|dumb|useless|bad|terrible|wrong|not\\s+helpful)\\b",
+        "\\b(?:useless|not\\s+helpful)\\b",
+        "\\b(?:that|this)(?:['’]?s|\\s+is)\\s+(?:wrong|incorrect|not\\s+right)\\b"
+      ],
+      "responses": [
+        "Sorry about that. Try rephrasing your question, or type 'help' to see what I can answer.",
+        "I'm sorry I couldn't help properly. For anything I can't answer, please contact HR or the IT Helpdesk through their portals."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.how_are_you",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\bhow\\s+(?:are|r)\\s+(?:you|u)(?:\\s+doing)?\\b",
+        "\\bhow(?:['’]s|\\s+is)\\s+it\\s+going\\b",
+        "\\bhow\\s+do\\s+you\\s+do\\b",
+        "\\bhow(?:['’]s|\\s+is)\\s+(?:your\\s+day|life)\\b",
+        "\\bhow\\s+have\\s+you\\s+been\\b"
+      ],
+      "responses": [
+        "I'm doing well, thanks for asking! How can I help?",
+        "All systems nominal. What would you like to know?",
+        "I'm fine and ready to help. Ask me something!"
+      ],
+      "slots": [],
+      "escalation_responses": [],
+      "repeat_responses": [
+        "Still doing well, {name}. Thanks for asking again!",
+        "Still doing well. Thanks for asking again!"
+      ]
+    },
+    {
+      "name": "question.name",
+      "category": "question",
+      "priority": 50,
+      "patterns": [
+        "\\bwhat(?:['’]s|\\s+is)\\s+your\\s+name\\b",
+        "\\bwho\\s+are\\s+you\\b",
+        "\\b(?:tell\\s+me\\s+)?your\\s+name\\b",
+        "\\bwhat\\s+(?:should|can)\\s+i\\s+call\\s+you\\b"
+      ],
+      "responses": [
+        "I'm Aria, the HCLTech virtual assistant.",
+        "My name is Aria."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.capabilities",
+      "category": "question",
+      "priority": 40,
+      "patterns": [
+        "\\bwhat\\s+can\\s+you\\s+(?:do|help)\\b",
+        "\\bwhat\\s+do\\s+you\\s+do\\b",
+        "\\bhow\\s+can\\s+you\\s+help\\b",
+        "\\bwhat\\s+(?:can|should)\\s+i\\s+ask\\b",
+        "\\b(?:help|assist|menu|commands?)\\b"
+      ],
+      "responses": [
+        "I can help with HCLTech information, working hours, leave and holidays, IT support, payroll and PF, benefits, reimbursements, policies, travel, onboarding and exit queries. I also tell the time and date, and remember your name and company!",
+        "Try asking about leave policy, password reset, payslips, office location, holidays or travel. You can also tell me about yourself, for example 'I am Alice and I work at HCL'."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.joke",
+      "category": "question",
+      "priority": 30,
+      "patterns": [
+        "\\b(?:tell\\s+(?:me\\s+)?(?:a\\s+)?joke|joke|make\\s+me\\s+laugh|something\\s+funny)\\b"
+      ],
+      "responses": [
+        "Why do programmers prefer dark mode? Because light attracts bugs!",
+        "There are 10 types of people: those who understand binary and those who don't.",
+        "A SQL query walks into a bar, walks up to two tables and asks: 'Can I join you?'"
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.out_of_scope",
+      "category": "question",
+      "priority": 20,
+      "patterns": [
+        "\\b(?:weather|temperature|forecast|stock\\s+price|share\\s+price|news|cricket\\s+score|movie|recipe)\\b"
+      ],
+      "responses": [
+        "I can't look up live information like weather, news or prices. A search engine or a dedicated app will do better. I can help with HR, IT and office questions.",
+        "That's outside what I can do. Try asking about working hours, leave, IT support or payroll."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "question.acknowledge",
+      "category": "question",
+      "priority": 20,
+      "patterns": [
+        "^\\s*(?:ok(?:ay)?|k|cool|nice|great|alright|got\\s+it|fine|sure|yes|yeah|yep|no|nope)\\s*[.!?]*\\s*$"
+      ],
+      "responses": [
+        "Alright! Anything else I can help with?",
+        "Okay. Let me know if you have another question.",
+        "Sure thing. What else would you like to know?"
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "memory.remember_identity",
+      "category": "question",
+      "priority": 100,
+      "patterns": [
+        "\\b(?:i\\s+am|i['’]m|this\\s+is|my\\s+name\\s+is)\\s+(?!(?:a|an|the|not|fine|good|great|well|ok|okay|sorry|here|there|happy|sad|tired|new|looking|trying|having|going|wondering|just|so|very|really|also|still|unable|facing|getting|asking|interested|confused|busy|late|ready|done|sure|from|in|at|on|off|with|to|for|and|or|but|if|when|how|what|why|who|where|which|as|by|being|doing|feeling|working|using|locked|blocked|stuck|lost|sick|ill|leaving|joining|resigning|applying|planning|thinking|worried|stressed|angry|upset|frustrated|annoyed|bored|hungry|curious|excited|glad|available|free|online|offline|out|back|it|hr|this|that|now|currently|already|always|never|calling|writing|reaching|contacting|requesting|raising|checking)\\b)(?P<name>[^\\W\\d_][\\w'’-]+)\\s+(?:and\\s+)?i\\s+(?:work|am\\s+working)\\s+(?:at|for|with)\\s+(?P<company>[A-Za-z0-9&\\s-]+?)(?=\\s+(?:as|in|since|from|where|because|currently|on|and\\s+i)\\b|\\s*[.,!;?]|\\s*$)",
+        "\\bmy\\s+name\\s+is\\s+(?!(?:a|an|the|not)\\b)(?P<name>[^\\W\\d_][\\w'’-]+)",
+        "\\b(?:call\\s+me|you\\s+can\\s+call\\s+me|people\\s+call\\s+me)\\s+(?P<name>[^\\W\\d_][\\w'’-]+)",
+        "\\b(?:i\\s+am|i['’]m)\\s+(?!(?:a|an|the|not|fine|good|great|well|ok|okay|sorry|here|there|happy|sad|tired|new|looking|trying|having|going|wondering|just|so|very|really|also|still|unable|facing|getting|asking|interested|confused|busy|late|ready|done|sure|from|in|at|on|off|with|to|for|and|or|but|if|when|how|what|why|who|where|which|as|by|being|doing|feeling|working|using|locked|blocked|stuck|lost|sick|ill|leaving|joining|resigning|applying|planning|thinking|worried|stressed|angry|upset|frustrated|annoyed|bored|hungry|curious|excited|glad|available|free|online|offline|out|back|it|hr|this|that|now|currently|already|always|never|calling|writing|reaching|contacting|requesting|raising|checking)\\b)(?P<name>[^\\W\\d_][\\w'’-]+)",
+        "\\bi\\s+(?:work|am\\s+working|am\\s+employed)\\s+(?:at|for|with)\\s+(?P<company>[A-Za-z0-9&\\s-]+?)(?=\\s+(?:as|in|since|from|where|because|currently|on|and\\s+i)\\b|\\s*[.,!;?]|\\s*$)"
+      ],
+      "responses": [
+        "Nice to meet you, {name}! I'll remember you work at {company}.",
+        "Got it, {name}. I've updated my memory.",
+        "Thanks for sharing, {name}.",
+        "Noted, you work at {company}."
+      ],
+      "slots": ["name", "company"],
+      "escalation_responses": [],
+      "fallback_responses": [
+        "I've updated my memory with that information."
+      ]
+    },
+    {
+      "name": "memory.recall_profile",
+      "category": "question",
+      "priority": 95,
+      "patterns": [
+        "\\bwhat\\s+(?:do\\s+you\\s+)?(?:know|remember)\\s+about\\s+me\\b",
+        "\\btell\\s+me\\s+about\\s+(?:me|myself)\\b",
+        "\\bmy\\s+(?:details|info|profile)\\b"
+      ],
+      "responses": [
+        "You're {name}, and you work at {company}.",
+        "You're {name}.",
+        "You work at {company}."
+      ],
+      "slots": [],
+      "escalation_responses": [],
+      "fallback_responses": [
+        "I don't know much about you yet. Try saying 'I am Alice and I work at HCL'."
+      ]
+    },
+    {
+      "name": "memory.recall_name",
+      "category": "question",
+      "priority": 90,
+      "patterns": [
+        "\\bwhat(?:['’]?s|\\s+is)?\\s+my\\s+name\\b",
+        "\\bmy\\s+name\\s+is\\s*\\?",
+        "^\\s*my\\s+name\\s*[?!.]*\\s*$",
+        "\\bwho\\s+(?:am\\s+i|i\\s+am)\\b",
+        "\\bdo\\s+you\\s+(?:know|remember)\\s+(?:my\\s+name|who\\s+i\\s+am|me)\\b",
+        "\\b(?:tell|say)\\s+me\\s+my\\s+name\\b",
+        "\\bwhat\\s+do\\s+you\\s+call\\s+me\\b"
+      ],
+      "responses": [
+        "Your name is {name}.",
+        "I remember you, {name}!"
+      ],
+      "slots": [],
+      "escalation_responses": [],
+      "fallback_responses": [
+        "You haven't told me your name yet. Try saying 'My name is Alice'."
+      ]
+    },
+    {
+      "name": "memory.recall_company",
+      "category": "question",
+      "priority": 90,
+      "patterns": [
+        "\\bwhere\\s+do\\s+i\\s+work\\b",
+        "\\bwhat(?:['’]?s|\\s+is)?\\s+my\\s+company(?:\\s+name)?\\b",
+        "^\\s*my\\s+company\\s*[?!.]*\\s*$",
+        "\\b(?:which|what)\\s+company\\s+do\\s+i\\s+work\\s+(?:for|at|in|with)\\b",
+        "\\bwho\\s+do\\s+i\\s+work\\s+for\\b",
+        "\\bmy\\s+(?:employer|organi[sz]ation)\\b"
+      ],
+      "responses": [
+        "You work at {company}.",
+        "I have your company listed as {company}."
+      ],
+      "slots": [],
+      "escalation_responses": [],
+      "fallback_responses": [
+        "You haven't told me where you work yet. Try saying 'I work at HCL'."
+      ]
+    },
+    {
+      "name": "memory.last_question",
+      "category": "question",
+      "priority": 80,
+      "patterns": [
+        "\\bwhat\\s+(?:did\\s+i|was\\s+i)\\s+(?:just\\s+)?(?:ask|asking|say|said|type|typed)\\b",
+        "\\b(?:what(?:['’]?s|\\s+is|\\s+was)?\\s+)?(?:my\\s+)?(?:last|previous)\\s+(?:question|message|query)\\b",
+        "\\brepeat\\s+(?:my\\s+)?(?:last\\s+|previous\\s+)?(?:question|message)\\b",
+        "\\bwhat\\s+did\\s+i\\s+ask\\s+(?:you\\s+)?(?:before|earlier)\\b"
+      ],
+      "responses": [
+        "You just asked: {last_question}",
+        "Your last question was: {last_question}"
+      ],
+      "slots": [],
+      "escalation_responses": [],
+      "fallback_responses": [
+        "You haven't asked me anything yet.",
+        "We're just getting started, so there's no prior question to recall."
+      ]
+    },
+    {
+      "name": "farewell.bye",
+      "category": "farewell",
+      "priority": 90,
+      "patterns": [
+        "\\b(?:bye|goodbye|good\\s*bye|bye\\s*bye|see\\s+(?:you|ya)|cya|take\\s+care|good\\s*night|talk\\s+(?:to\\s+you\\s+)?later|ttyl)\\b",
+        "^\\s*(?:exit|quit)\\s*[?!.]*\\s*$"
+      ],
+      "responses": [
+        "Goodbye! Thanks for chatting.",
+        "See you later! Have a great day.",
+        "Bye! It was nice talking to you."
+      ],
+      "slots": [],
+      "escalation_responses": []
+    },
+    {
+      "name": "fallback.unknown",
+      "category": "unknown",
+      "priority": 0,
+      "patterns": [],
+      "responses": [
+        "I'm not sure I understood that. Could you rephrase?",
+        "I don't have an answer for that yet. Try asking about working hours, leave policy, payroll, IT support or office facilities.",
+        "Sorry, I didn't catch that. Type 'help' to see what I can do."
+      ],
+      "slots": [],
+      "escalation_responses": [
+        "I'm still not sure. Try a simpler question or type 'help'.",
+        "I may need a hint. You can ask about HCLTech, leave, payroll, IT support or policies. For anything else, please raise a ticket on the HR portal or IT Helpdesk."
+      ]
+    }
+  ]
+}

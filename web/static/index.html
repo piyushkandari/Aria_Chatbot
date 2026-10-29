@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aria — Chat</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="chat-app" aria-label="Aria chatbot">
+
+    <header class="chat-header">
+      <div class="chat-header__info">
+        <span class="chat-header__avatar" aria-hidden="true">A</span>
+        <div>
+          <h1 class="chat-header__title">Aria</h1>
+          <p class="chat-header__status" id="status">
+            <span class="dot" aria-hidden="true"></span>
+            <span id="status-text">Online</span>
+          </p>
+        </div>
+      </div>
+      <div class="chat-header__actions">
+        <button type="button" id="btn-new" class="btn btn--ghost">New chat</button>
+        <button type="button" id="btn-download" class="btn btn--ghost">Download transcript</button>
+      </div>
+    </header>
+
+    <div id="error-banner" class="error-banner" role="alert" hidden></div>
+
+    <section
+      id="messages"
+      class="chat-messages"
+      aria-live="polite"
+      aria-label="Conversation"
+    ></section>
+
+    <div id="typing" class="typing-indicator" hidden>
+      <span class="typing-indicator__dot"></span>
+      <span class="typing-indicator__dot"></span>
+      <span class="typing-indicator__dot"></span>
+      <span class="visually-hidden">Aria is typing</span>
+    </div>
+
+    <div class="chat-chips" id="chips" aria-label="Quick replies">
+      <button type="button" class="chip" data-message="What can you do?">What can you do?</button>
+      <button type="button" class="chip" data-message="What time is it?">What time is it?</button>
+      <button type="button" class="chip" data-message="What is your name?">What is your name?</button>
+      <button type="button" class="chip" data-message="How are you?">How are you?</button>
+    </div>
+
+    <form id="chat-form" class="chat-input" autocomplete="off">
+      <label for="message-input" class="visually-hidden">Message Aria</label>
+      <input
+        id="message-input"
+        name="message"
+        type="text"
+        maxlength="500"
+        placeholder="Type a message…"
+        required
+        autofocus
+      >
+      <button type="submit" id="btn-send" class="btn btn--send">Send</button>
+    </form>
+
+  </main>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
