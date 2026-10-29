@@ -13,8 +13,7 @@
 
 > **Working Video Demo:** [Click here to watch the Aria Chatbot demo on YouTube](https://drive.google.com/drive/u/2/folders/1LSBf3YHhZC5-e5BZ4jXdS-cpm3HzqCNL)
 
-![Aria Web Interface](docs/image.png)  
-*(Replace the image path above with your actual screenshot, e.g., `docs/screenshot.png`)*
+![Aria Web Interface](doc/image.png)  
 
 ---
 
